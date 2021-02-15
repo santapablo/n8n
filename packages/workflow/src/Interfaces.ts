@@ -487,6 +487,10 @@ export interface INodeTypeBase {
 	description: INodeTypeBaseDescription;
 }
 
+export interface INodeVersions {
+	[key: number]: INodeType;
+}
+
 export interface INodeType extends INodeTypeBase {
 	description: INodeTypeDescription;
 	execute?(this: IExecuteFunctions): Promise<INodeExecutionData[][] | null>;
@@ -507,11 +511,12 @@ export interface INodeType extends INodeTypeBase {
 	};
 }
 
-export interface INodeVersionedType extends INodeTypeBase {
+export interface INodeVersionedType {
 	nodeVersions: {
 		[key: number]: INodeType
 	};
 	defaultVersion: number;
+	description: INodeTypeBaseDescription;
 	getNodeType: (version?: number) => INodeType;
 }
 
