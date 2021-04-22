@@ -226,7 +226,7 @@ export default mixins(
 			}
 		},
 		async credentialType (newValue, oldValue) {
-			this.$externalHooks().run('credentialsEdit.credentialTypeChanged', { newValue, oldValue, editCredentials: !!this.editCredentials, credentialType: this.credentialType });
+			this.$externalHooks().run('credentialsEdit.credentialTypeChanged', { newValue, oldValue, editCredentials: !!this.editCredentials, credentialType: this.credentialType, setCredentialType: this.setCredentialType });
 		},
 	},
 	methods: {
